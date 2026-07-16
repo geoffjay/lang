@@ -1,0 +1,9 @@
+# Speech-to-text (local, runs on CPU on Apple Silicon)
+faster-whisper==1.0.3
+
+# Microphone capture
+sounddevice==0.4.7
+numpy==1.26.4
+
+# Talking to the local Ollama server
+requests==2.32.3
