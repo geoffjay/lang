@@ -1,0 +1,371 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.JapaneseTutor-arm64-apple-macosx-release.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/sources",
+      "importPath" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/AppState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Config.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/ConversationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/JapaneseTutorApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/MenuContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/OllamaClient.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Session.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Speaker.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/SpeechRecognizer.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "JapaneseTutor",
+      "moduleOutputPath" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/Modules/JapaneseTutor.swiftmodule",
+      "objects" : [
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/AppState.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Config.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/ConversationController.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/JapaneseTutorApp.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/MenuContentView.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/OllamaClient.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Session.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Speaker.swift.o",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/SpeechRecognizer.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-whole-module-optimization",
+        "-num-threads",
+        "10",
+        "-serialize-diagnostics",
+        "-O",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "JapaneseTutor_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "macos"
+      ],
+      "outputFileMapPath" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/AppState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Config.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/ConversationController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/JapaneseTutorApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/MenuContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/OllamaClient.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Session.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Speaker.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/SpeechRecognizer.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/Modules/JapaneseTutor.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/AppState.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Config.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/ConversationController.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/JapaneseTutorApp.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/MenuContentView.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/OllamaClient.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Session.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Speaker.swift",
+        "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/SpeechRecognizer.swift"
+      ],
+      "tempsPath" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build",
+      "wholeModuleOptimization" : true
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "JapaneseTutor" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "JapaneseTutor",
+      "-package-name",
+      "macos",
+      "-c",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/AppState.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Config.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/ConversationController.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/JapaneseTutorApp.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/MenuContentView.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/OllamaClient.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Session.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Speaker.swift",
+      "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/SpeechRecognizer.swift",
+      "-I",
+      "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-whole-module-optimization",
+      "-num-threads",
+      "10",
+      "-serialize-diagnostics",
+      "-O",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "JapaneseTutor_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "macos",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "JapaneseTutor" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/AppState.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Config.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/ConversationController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/JapaneseTutorApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/MenuContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/OllamaClient.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Session.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Speaker.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/SpeechRecognizer.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/sources"
+    },
+    "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/AppState.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Config.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/ConversationController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/JapaneseTutorApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/MenuContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/OllamaClient.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Session.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/Speaker.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.build/SpeechRecognizer.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/JapaneseTutor.product/Objects.LinkFileList"
+    },
+    "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/release/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

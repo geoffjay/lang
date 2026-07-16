@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "JapaneseTutor-arm64-apple-macosx-debug.exe": ["<JapaneseTutor-arm64-apple-macosx-debug.exe>"]
+  "JapaneseTutor-arm64-apple-macosx-debug.module": ["<JapaneseTutor-arm64-apple-macosx-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<JapaneseTutor-arm64-apple-macosx-debug.exe>","<JapaneseTutor-arm64-apple-macosx-debug.module>"]
+  "test": ["<JapaneseTutor-arm64-apple-macosx-debug.exe>","<JapaneseTutor-arm64-apple-macosx-debug.module>"]
+default: "main"
+nodes:
+  "/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor":
+    is-mutated: true
+commands:
+  "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor-entitlement.plist"]
+    description: "Write auxiliary file /Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor-entitlement.plist"
+
+  "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/AppState.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Config.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/ConversationController.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/JapaneseTutorApp.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/MenuContentView.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/OllamaClient.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Session.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Speaker.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/SpeechRecognizer.swift"]
+    outputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/sources"]
+    description: "Write auxiliary file /Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/sources"
+
+  "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/AppState.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Config.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/ConversationController.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/JapaneseTutorApp.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/MenuContentView.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/OllamaClient.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Session.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Speaker.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/SpeechRecognizer.swift.o"]
+    outputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.product/Objects.LinkFileList"
+
+  "/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Library/Developer/CommandLineTools/usr/bin/swiftc"]
+    outputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+
+  "<JapaneseTutor-arm64-apple-macosx-debug.exe>":
+    tool: phony
+    inputs: ["<JapaneseTutor-arm64-apple-macosx-debug.exe-CodeSigning>"]
+    outputs: ["<JapaneseTutor-arm64-apple-macosx-debug.exe>"]
+
+  "<JapaneseTutor-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/AppState.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Config.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/ConversationController.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/JapaneseTutorApp.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/MenuContentView.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/OllamaClient.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Session.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Speaker.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/SpeechRecognizer.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/Modules/JapaneseTutor.swiftmodule"]
+    outputs: ["<JapaneseTutor-arm64-apple-macosx-debug.module>"]
+
+  "C.JapaneseTutor-arm64-apple-macosx-debug.exe":
+    tool: shell
+    inputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/AppState.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Config.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/ConversationController.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/JapaneseTutorApp.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/MenuContentView.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/OllamaClient.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Session.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Speaker.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/SpeechRecognizer.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.product/Objects.LinkFileList"]
+    outputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/JapaneseTutor"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-L","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug","-o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor","-module-name","JapaneseTutor","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_JapaneseTutor_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Library/Developer/CommandLineTools/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx14.0","-Xlinker","-add_ast_path","-Xlinker","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/Modules/JapaneseTutor.swiftmodule","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g"]
+
+  "C.JapaneseTutor-arm64-apple-macosx-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor-entitlement.plist"]
+    outputs: ["<JapaneseTutor-arm64-apple-macosx-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/JapaneseTutor"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor-entitlement.plist","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor"]
+
+  "C.JapaneseTutor-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/AppState.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Config.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/ConversationController.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/JapaneseTutorApp.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/MenuContentView.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/OllamaClient.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Session.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/Speaker.swift","/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/SpeechRecognizer.swift","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/sources"]
+    outputs: ["/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/AppState.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Config.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/ConversationController.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/JapaneseTutorApp.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/MenuContentView.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/OllamaClient.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Session.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/Speaker.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/SpeechRecognizer.swift.o","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/Modules/JapaneseTutor.swiftmodule"]
+    description: "Compiling Swift Module 'JapaneseTutor' (9 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","JapaneseTutor","-emit-dependencies","-emit-module","-emit-module-path","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/Modules/JapaneseTutor.swiftmodule","-output-file-map","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/output-file-map.json","-incremental","-c","@/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/JapaneseTutor.build/sources","-I","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j10","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/geoff/Projects/lang/macos/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","JapaneseTutor_main","-swift-version","5","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","macos"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/geoff/Projects/lang/macos/Sources/JapaneseTutor/","/Users/geoff/Projects/lang/macos/Package.swift","/Users/geoff/Projects/lang/macos/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
