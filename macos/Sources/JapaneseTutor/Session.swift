@@ -3,13 +3,14 @@ import Foundation
 /// Persisted progress so the tutor "grows with you" across launches.
 struct Session: Codable {
     var difficulty: Int
+    var immersion: Int
     var totalTurns: Int
     var transcript: [Entry]
 
     struct Entry: Codable {
         let time: String
         let heard: String
-        let replyJapanese: String
+        let reply: String
     }
 
     private static var fileURL: URL {
@@ -23,7 +24,12 @@ struct Session: Codable {
         guard let data = try? Data(contentsOf: fileURL),
               let session = try? JSONDecoder().decode(Session.self, from: data)
         else {
-            return Session(difficulty: Config.startDifficulty, totalTurns: 0, transcript: [])
+            return Session(
+                difficulty: Config.startDifficulty,
+                immersion: Config.startImmersion,
+                totalTurns: 0,
+                transcript: []
+            )
         }
         return session
     }
@@ -32,7 +38,7 @@ struct Session: Codable {
         totalTurns += 1
         difficulty = turn.newDifficulty
         let stamp = ISO8601DateFormatter().string(from: Date())
-        transcript.append(Entry(time: stamp, heard: userText, replyJapanese: turn.replyJapanese))
+        transcript.append(Entry(time: stamp, heard: userText, reply: turn.reply))
     }
 
     func save() {

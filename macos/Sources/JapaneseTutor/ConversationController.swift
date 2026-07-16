@@ -1,17 +1,26 @@
+import AVFoundation
 import Foundation
 import SwiftUI
 
-/// Orchestrates the whole conversation: permissions, the greeting, and the
-/// hands-free listen → think → speak → listen loop until the user stops.
+/// Orchestrates the whole conversation: permissions, loading the speech model,
+/// the greeting, and the hands-free listen → transcribe → think → speak loop.
 @MainActor
 final class ConversationController: ObservableObject {
     @Published private(set) var state: AppState = .idle
     @Published private(set) var active = false
     @Published private(set) var difficulty: Int
+    @Published var immersion: Int {
+        didSet {
+            ollama.immersion = immersion
+            session.immersion = immersion
+            session.save()
+        }
+    }
     @Published private(set) var current: Turn?
     @Published private(set) var statusMessage = "Click to start a conversation."
 
-    private let recognizer = SpeechRecognizer()
+    private let capture = AudioCapture()
+    private let transcriber: Transcriber
     private let speaker = Speaker()
     private var ollama: OllamaClient
     private var session: Session
@@ -21,7 +30,9 @@ final class ConversationController: ObservableObject {
         let saved = Session.load()
         session = saved
         difficulty = saved.difficulty
-        ollama = OllamaClient(level: Config.level, difficulty: saved.difficulty)
+        immersion = saved.immersion
+        ollama = OllamaClient(level: Config.level, difficulty: saved.difficulty, immersion: saved.immersion)
+        transcriber = Transcriber(model: Config.whisperModel)
     }
 
     func toggle() {
@@ -35,7 +46,7 @@ final class ConversationController: ObservableObject {
 
     func stop() {
         active = false
-        recognizer.cancel()
+        capture.cancel()
         speaker.stop()
         loop?.cancel()
         loop = nil
@@ -53,14 +64,24 @@ final class ConversationController: ObservableObject {
         let (ready, message) = await OllamaClient.checkReady()
         guard ready else { setError(message); return }
 
-        let authorized = await recognizer.requestAuthorization()
-        guard authorized else {
-            setError("Grant Microphone and Speech Recognition access in System Settings › Privacy & Security.")
+        let micOK = await withCheckedContinuation { (cont: CheckedContinuation<Bool, Never>) in
+            AVCaptureDevice.requestAccess(for: .audio) { cont.resume(returning: $0) }
+        }
+        guard micOK else {
+            setError("Grant Microphone access in System Settings › Privacy & Security.")
+            return
+        }
+
+        state = .thinking
+        statusMessage = "Loading the speech model (first run downloads it)…"
+        do {
+            try await transcriber.load()
+        } catch {
+            setError("Couldn't load the speech model: \(error.localizedDescription)")
             return
         }
 
         // Opening greeting.
-        state = .thinking
         statusMessage = "あい is greeting you…"
         do {
             let turn = try await ollama.opening()
@@ -68,7 +89,7 @@ final class ConversationController: ObservableObject {
             difficulty = ollama.difficulty
             guard active else { return }
             state = .speaking
-            await speaker.speak(turn.replyJapanese, difficulty: difficulty)
+            await speaker.speak(turn.reply, difficulty: difficulty)
         } catch {
             setError(error.localizedDescription)
             return
@@ -77,25 +98,37 @@ final class ConversationController: ObservableObject {
         // Hands-free conversation loop.
         while active && !Task.isCancelled {
             state = .listening
-            statusMessage = "Listening… just start talking."
+            statusMessage = "Listening… speak in English or Japanese."
 
-            let heard: String
+            let samples: [Float]
             do {
-                heard = try await recognizer.listenForUtterance()
+                samples = try await capture.captureUtterance()
             } catch {
                 if !active { break }
-                statusMessage = "Didn't catch that — try again."
+                statusMessage = "Mic error: \(error.localizedDescription)"
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
                 continue
             }
             guard active else { break }
-
-            let text = heard.trimmingCharacters(in: .whitespacesAndNewlines)
-            if text.isEmpty { continue }
+            if samples.isEmpty { continue }
 
             state = .thinking
+            statusMessage = "Transcribing…"
+            let heard: String
+            let language: String
+            do {
+                (heard, language) = try await transcriber.transcribe(samples)
+            } catch {
+                statusMessage = "Transcription error: \(error.localizedDescription)"
+                continue
+            }
+            let text = heard.trimmingCharacters(in: .whitespacesAndNewlines)
+            if text.isEmpty { continue }
+            guard active else { break }
+
             statusMessage = "Thinking…"
             do {
-                let turn = try await ollama.respond(text)
+                let turn = try await ollama.respond(text, userLanguage: language)
                 current = turn
                 difficulty = ollama.difficulty
                 session.record(userText: text, turn: turn)
@@ -104,7 +137,7 @@ final class ConversationController: ObservableObject {
                 guard active else { break }
                 state = .speaking
                 statusMessage = "あい is speaking…"
-                await speaker.speak(turn.replyJapanese, difficulty: difficulty)
+                await speaker.speak(turn.reply, difficulty: difficulty)
             } catch {
                 statusMessage = "Error: \(error.localizedDescription)"
                 try? await Task.sleep(nanoseconds: 1_500_000_000)
